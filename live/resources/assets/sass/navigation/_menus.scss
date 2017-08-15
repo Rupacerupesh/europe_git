@@ -1,0 +1,129 @@
+body{
+	#top-nav{
+	text-align: right;
+	@extend %flex-styled;
+	 @include justify-content(flex-end !important);
+		.common-nav{
+			ul{
+				right: 0;
+				left: auto;
+			}
+		}
+	}
+}
+
+.common-nav {
+	@extend %list-none;
+	text-align: left;
+	margin-top:10px;
+	display: inline-block;
+		li{
+			position: relative;
+			a{
+				color: $light_bg_color;
+				@include font-size(14/16);
+
+				&:hover{
+					text-decoration: none;
+				}
+
+			}
+			&:hover{
+					& > ul{
+						display: block;
+					}
+				}
+			ul{
+				display: none;
+				position: absolute;
+				top:100%;
+				left: 0;
+				min-width: 150px;
+				@extend %list-none;
+				padding-top:15px;
+				background: none;
+				z-index: 999;
+				li{
+					a{
+						display: block;
+						padding: 5px 10px;
+						color: $color_blue;
+						background: $color_blue;
+						border-top: 1px solid rgba(255,255,255,0.1);
+						@include transition(all 400ms ease);
+						&:hover{
+							background: $color_blue;
+							color: $color_white;
+						}
+					}
+					&:first-child{
+						a{
+							border: none;
+						}
+					}
+				}
+			}
+		}
+
+		& > li{
+			float: left;
+			@include rem-fallback(margin, 0, 8/16, 0, 8/16);
+			a{
+				padding-bottom: 7px;
+			}
+		}
+
+		&.main-nav{
+			margin-left: 15%;
+			background-color: $bg_color_top;
+    		border-right: 5px solid $bg_color_form;
+			& > li{
+				margin: 0;
+				&>a{
+					@include rem-fallback(padding, 5/16, 28/16, 5/16, 28/16);
+					border-left: 1px solid rgba(255,255,255,0.5);
+					@include ninesixtless{
+						@include rem-fallback(margin, 0, 25/16, 0,25/16);
+					}
+					&:hover{
+						background: $bg_color_form;
+					}
+				}
+				&:first-child{
+					&>a{
+						border-left: none;
+					}
+				}
+				a{
+					/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+					color:$light_bg_color;
+					@include font-size(18/16);
+				}
+			}
+			ul{
+				min-width: 200px;
+				li{
+					a{
+						@include font-size(1);
+						@include transition(all 400ms ease);
+						&:hover{
+							background: $bg_color_top;
+						}
+					}
+				}
+			}
+		}
+}
+
+.bottom-header, .top-header{
+	& > .container{
+		@extend %flex-styled;
+	}
+
+	#primary-nav{
+		text-align: right;
+	}
+}
+
+
+

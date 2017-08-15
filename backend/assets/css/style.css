@@ -1,0 +1,280 @@
+@media (min-width: 992px){
+    .typo-line{
+        padding-left: 140px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .typo-line .category{
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0px;
+        position: absolute;
+    }
+}
+
+.all-icons [class*="pe-"]{
+    font-size: 40px;
+}
+.all-icons input{
+    border: 0;
+}
+.all-icons .font-icon-detail{
+    text-align: center;
+    padding: 45px 0px 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+.all-icons .font-icon-detail input{
+    margin: 25px auto 0;
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #aaa;
+    font-size: 13px;
+}
+
+#map{
+    position:relative;
+    width:100%;
+    height: calc(100% - 60px);
+}
+
+.places-buttons .btn{
+    margin-bottom: 30px
+}
+.sidebar .nav > li.active-pro{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+.sidebar .nav > li.active-pro a{
+    background: rgba(255, 255, 255, 0.14);
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.table-upgrade td:nth-child(2),
+.table-upgrade td:nth-child(3){
+    text-align: center;
+}
+
+
+/*bar diagrams*/
+.graph_fancy {
+    height: 200px;
+    margin: 0 0 55px 0;
+    position: relative;
+    white-space: nowrap;
+    background: transparent;
+    color: #fff;
+    font-size: 0;
+}
+.graph_fancy:before { /* Y-axis label */
+    display: block;
+    padding: .5em;
+    position: absolute;
+    right: 100%;
+    top: 48%;
+    color: #2E363F;
+    content: attr(data-y-label);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+}
+.graph_fancy:after { /* X-axis label */
+    display: block;
+    left: 0;
+    margin: 1em 0 0 0;
+    padding: .75em 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    color: #2E363F;
+    content: attr(data-x-label);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+}
+.graph_fancy .bar {
+    display: inline-block;
+    margin: 0 0 0 1px;
+    vertical-align: bottom;
+    position: relative;
+    width: 8.12%;
+
+    background: #fc4;
+    cursor: pointer;
+}
+.graph_fancy .bar:first-child {
+    height: 100%;
+    margin: 0;
+    width: 0;
+}
+.graph_fancy .bar:hover {
+    z-index: 100;
+
+    background: #fc0;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+}
+.graph_fancy .bar:before { /* Bar label */
+    display: block;
+    left: 0;
+    padding: .15em 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    color: #2E363F;
+    content: attr(data-bar-label);
+    font-size: 12px;
+    opacity: .5;
+    text-align: center;
+}
+.graph_fancy .bar:after { /* Bar data value */
+    bottom: 100%;
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    color: #333;
+    content: attr(data-bar-value);
+    font-size: 12px;
+    opacity: .5;
+    text-align: center;
+}
+.graph_fancy .bar, .graph_fancy .bar:before, .graph_fancy .bar:after {
+    transition: background .25s ease-out, opacity .25s ease-out, box-shadow .25s ease-out;
+}
+.graph_fancy .bar:hover:before, .graph_fancy .bar:hover:after { opacity: 1; }
+
+
+.modal.teacher{
+    padding-right: 0 !important;
+}
+
+.teacher .modal-dialog {
+    width: 600px;
+    margin: 0;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -moz-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -o-transform: translate(-50%, -50%) !important;
+    transform: translate(-50%, -50%) !important;
+    left: 50%;
+    top: 50%;
+}
+
+.modal-header .close{
+    font-size: 30px;
+    opacity: 0.8;
+}
+
+.table-striped>tbody>tr.ownself{
+    background: #2E363F;
+    color: #fff;
+}
+
+@media only screen and (max-width: 767px){
+    .graph_fancy .bar:before{
+        overflow:hidden;
+        width:22px;
+        text-overflow: ellipsis;
+    }
+    .graph_fancy .bar:hover::before{
+        width: 100%;
+        text-overflow:initial;
+        overflow:visible;
+        font-weight: bold;
+    }
+
+}
+
+@media only screen and (max-width:660px){
+    .teacher .modal-dialog{
+        width: 100%;
+    }
+}
+
+
+.table-responsive table form{
+    display: inline-block;
+}
+
+.table-responsive table td,
+.table-responsive table th{
+    white-space: nowrap;
+}
+
+.table-responsive table > tbody > tr > td{
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+
+.backend-nav table >tbody > tr.nav-parent > td{
+    background: #5cb85c;
+    color: #fff;
+}
+
+.backend-nav table >tbody > tr.nav-child > td{
+    padding-left:25px;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: block;
+  width: 55px;
+  height: 25px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 0;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #009800;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #009800;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(30px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

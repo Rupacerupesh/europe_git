@@ -1,0 +1,232 @@
+html{
+  font-size: 16px;
+}
+
+@mixin font-size($sizeValue: 1) {
+  font-size: ($sizeValue * 16) * 1px;
+  font-size: $sizeValue * 1rem;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value * 16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin clearfix() {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+
+
+@mixin borderRadius($border_value){
+  border-radius:($border_value) * 1px;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
+%list-none{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+@mixin borderRadius($border_value){
+  border-radius:($border_value) * 1px;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+@mixin text-transform{
+	text-transform: uppercase;
+}
+
+
+
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$container-width: 1400px;
+$mini-container:1200px;
+
+@mixin fifteenC{
+   @media only screen and (max-width: #{$container-width + 100px}) {
+    @content;
+  }
+}
+
+@mixin containerwidth{
+   @media only screen and (max-width: #{$container-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin twelveC{
+   @media only screen and (max-width: #{$mini-container - 1px}) {
+    @content;
+  }
+}
+
+
+@mixin largedesktop{
+   @media only screen and (min-width: #{$desktop-width + 236px}) {
+    @content;
+  }
+}
+
+@mixin tabletgreat{
+  @media only screen and (min-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktopless{
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+
+
+@mixin ninesixtless{
+   @media only screen and (max-width: #{$desktop-width - 65px}) {
+    @content;
+  }
+}
+
+@mixin mobile{
+   @media only screen and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+
+@mixin eightC{
+   @media only screen and (max-width: #{$container-width - 600px}) {
+    @content;
+  }
+}
+
+@mixin sixsixtless{
+   @media only screen and (max-width: #{$tablet-width - 108px}) {
+    @content;
+  }
+}
+
+
+@mixin smallphone{
+  @media only screen and (max-width: #{$tablet-width - 288px}) {
+    @content;
+  }
+}
+
+%flex-styled{
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(flex-end);
+      @media only screen and (max-width: 1024px){
+        @include justify-content(space-between);
+      }
+}
