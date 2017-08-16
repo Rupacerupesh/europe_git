@@ -37,6 +37,7 @@ Route::group(['middleware'=>['auth']],function() {
     Route::resource('/home/applications', 'ApplicationController');
     Route::resource('/home/navigation', 'NavigationController');
     Route::resource('/home/advertisement', 'AdvertisementController');
+    Route::resource('/home/banner', 'BannerController');
 
 });
 

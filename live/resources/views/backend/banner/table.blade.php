@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>
            <span>
-        <a href="{{ url('home/advertisement/create') }}">
+        <a href="{{ url('home/banner/create') }}">
             <button type="button" class="btn btn-success" id="viewbtn">
                 Add New
             </button>
@@ -26,32 +26,31 @@
                 <th>SN</th>
                 <th>Title</th>
                 <th>Image</th>
-                <th>Url</th>
                 <th>Publish</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
                 <?php
-                $i=$advertisement_list->firstItem();
+                $i=$banner_list->firstItem();
                 ?>
-                @foreach($advertisement_list as $advertisement)
+                @foreach($banner_list as $banner)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{$advertisement->title}}</td>
-                        <td><img src="{{URL::to('/').'/uploads/advertisements_resize/'.$advertisement->image}}" alt="{{$advertisement->image}}" ></td>
-                        <td>{{$advertisement->url}}</td>
-                        <td>@if($advertisement->status==1)
+                        <td>{{$banner->title}}</td>
+                        <td><img src="{{URL::to('/').'/uploads/banners_resize/'.$banner->image}}" alt="{{$banner->image}}" ></td>
+
+                        <td>@if($banner->status==1)
                                 <i class="fa-tick"> Active</i>
                             @else
                                 <i class="fa-tick"> Inactive</i>
                             @endif </td>
                         <td>
                             <a type="button" type="button" class="btn btn-primary btn-sm"
-                               href="{{ route('advertisement.edit', array($advertisement->id)) }}">
+                               href="{{ route('banner.edit', array($banner->id)) }}">
                                 <i class="flaticon-edit"> Edit</i>
                             </a>
-                            <form action="{{ route('advertisement.destroy', array($advertisement->id)) }}" method="POST" class="delete-user-form">
+                            <form action="{{ route('banner.destroy', array($banner->id)) }}" method="POST" class="delete-user-form">
                                 <input name="_method" value="DELETE" type="hidden">
                                 {!! csrf_field() !!}
 
@@ -66,8 +65,8 @@
 
             </tbody>
         </table>
-        Showing {{ $advertisement_list->firstItem() }} to {{ $advertisement_list->lastItem() }} of {{ $advertisement_list->total() }} entries
+        Showing {{ $banner_list->firstItem() }} to {{ $banner_list->lastItem() }} of {{ $banner_list->total() }} entries
     </div>
 
-    {{ $advertisement_list->links() }}
+    {{ $banner_list->links() }}
 @stop

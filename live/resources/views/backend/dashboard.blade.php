@@ -19,6 +19,12 @@
             </span>
 
         </a>
+        <a href="{{URL::to('/home/banner')}}"  >
+            <span class="avatar-name">
+                Banners
+            </span>
+
+        </a>
 
 
 
