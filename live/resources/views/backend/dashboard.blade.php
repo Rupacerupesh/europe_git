@@ -19,26 +19,13 @@
             </span>
 
         </a>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
         <a href="{{URL::to('/home/banner')}}"  >
             <span class="avatar-name">
                 Banners
             </span>
 
         </a>
->>>>>>> Stashed changes
 </div>
-=======
-        <a href="{{URL::to('/home/banner')}}"  >
-            <span class="avatar-name">
-                Banners
-            </span>
-
-        </a>
-
->>>>>>> fae6bd280ee446541d43356e58d9cdaefe34302b
 
 
     @stop
