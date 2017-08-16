@@ -64,7 +64,15 @@ jQuery(document).ready(function ($) {
 
 
     $("#testimonial-slider").owlCarousel({
-        items:2
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            768:{
+                items:2
+            }
+        }
     });
     $("#home-banner").owlCarousel({
         animateOut: 'slideOutDown',

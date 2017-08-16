@@ -278,3 +278,37 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.table-responsive table form{
+    display: inline-block;
+    margin:0;
+}
+
+.table-responsive table td,
+.table-responsive table th{
+    white-space: nowrap;
+}
+
+.backend-nav table > tbody > tr > td{
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+
+.backend-nav table >tbody > tr.nav-parent > td{
+    background: #5cb85c;
+    color: #fff;
+}
+
+.backend-nav table >tbody > tr.nav-child > td{
+    padding-left:25px;
+}
+
+.navigation-holder{
+    background: green;
+    padding: 10px;
+}
+
+.navigation-holder a{
+    display: inline-block;
+    color: #fff;
+}
