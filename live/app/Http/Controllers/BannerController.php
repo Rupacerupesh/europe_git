@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Advertisement;
+use App\Banner;
 use Illuminate\Support\Str;
 use File;
 use Image;
 
-class AdvertisementController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-       $advertisement_list=Advertisement::orderBy('id','DESC')->paginate(10);
-       return view('backend.advertisement.table',compact('advertisement_list'));
+       $banner_list=Banner::orderBy('id','DESC')->paginate(10);
+       return view('backend.banner.table',compact('banner_list'));
     }
 
     /**
@@ -29,7 +29,7 @@ class AdvertisementController extends Controller
     public function create()
     {
 
-        return view('backend.advertisement.create');
+        return view('backend.banner.create');
     }
 
     /**
@@ -41,27 +41,25 @@ class AdvertisementController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'title' => 'required|unique:advertisement',
-            'url' => 'required',
+            'title' => 'required|unique:banners',
             'image'=>'required',
         ]);
-        $advertisement=new Advertisement();
-        $advertisement->title=$request->title;
-        $advertisement->slug=$slug = Str::slug($advertisement->title, '_');
+        $banner=new Banner();
+        $banner->title=$request->title;
+        $banner->slug=$slug = Str::slug($banner->title, '_');
         /*image upload start*/
-        $destination_path = 'uploads/advertisements';
+        $destination_path = 'uploads/banners';
         $name= time() . "-" . $request->file('image')->getClientOriginalName();
         $image = $destination_path . '/' .$name;
         $request->file('image')->move($destination_path, $image);
         $this->upload_image($image,$name);
         /*image upload end*/
-        $advertisement->image=$name;
-        $advertisement->url=$request->url;
-        $advertisement->status=($request->status)?1:0;
-            $result=$advertisement->save();
+        $banner->image=$name;
+        $banner->status=($request->status)?1:0;
+            $result=$banner->save();
         if($result){
-            session()->flash('message', 'Advertisement Saved Succefully.');
-            return redirect('home/advertisement');
+            session()->flash('message', 'Banner Saved Succefully.');
+            return redirect('home/banner');
         }
         else{
             session()->flash('message', 'Something Went Wrong! Please Try Again.');
@@ -72,7 +70,7 @@ class AdvertisementController extends Controller
 
     public function upload_image($image,$name) {
         $image = Image::make($image);
-        $path = 'uploads/advertisements_resize/';
+        $path = 'uploads/banners_resize/';
         $image->resize(50,50);
         // save resized
         $image->save($path.$name);
@@ -98,8 +96,8 @@ class AdvertisementController extends Controller
     public function edit($id)
     {
 
-        $advertisement=Advertisement::find($id);
-        return view('backend.advertisement.edit',compact('advertisement'));
+        $banner=Banner::find($id);
+        return view('backend.banner.edit',compact('banner'));
     }
 
     /**
@@ -113,37 +111,35 @@ class AdvertisementController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'url' => 'required',
         ]);
-        $advertisement=Advertisement::find($id);
-        $advertisement->title=$request->title;
-        $advertisement->slug=$slug = Str::slug($advertisement->title, '_');
+        $banner=Banner::find($id);
+        $banner->title=$request->title;
+        $banner->slug=$slug = Str::slug($banner->title, '_');
         /*image upload*/
         if ($request->file('image')!='') {
 //                die('here');
-            $destination_path = 'uploads/advertisements';
+            $destination_path = 'uploads/banners';
             $name= time() . "-" . $request->file('image')->getClientOriginalName();
             $image = $destination_path . '/' .$name;
 
             $request->file('image')->move($destination_path, $image);
             $this->upload_image($image,$name);
-            if(file_exists($destination_path.'/'.$advertisement->image)){
-                unlink($destination_path.'/'.$advertisement->image);
-                unlink('uploads/advertisements_resize/'.$advertisement->image);
+            if(file_exists($destination_path.'/'.$banner->image)){
+                unlink($destination_path.'/'.$banner->image);
+                unlink('uploads/banners_resize/'.$banner->image);
 
             }
 
         }
         else{
-            $name=$advertisement->image;
+            $name=$banner->image;
         }
-        $advertisement->image=$name;
-        $advertisement->url=$request->url;
-        $advertisement->status=($request->status)?1:0;
-        $result=$advertisement->save();
+        $banner->image=$name;
+        $banner->status=($request->status)?1:0;
+        $result=$banner->save();
         if($result){
-            session()->flash('message', 'Advertisement Updated Succefully.');
-            return redirect('home/advertisement');
+            session()->flash('message', 'Banner Updated Succefully.');
+            return redirect('home/banner');
         }
         else{
             session()->flash('message', 'Something Went Wrong! Please Try Again.');
@@ -159,8 +155,8 @@ class AdvertisementController extends Controller
      */
     public function destroy($id)
     {
-        Advertisement::find($id)->delete();
-        session()->flash('message', 'Advertisement Deleted Successfully.');
-        return redirect('home/advertisement');
+        Banner::find($id)->delete();
+        session()->flash('message', 'Banner Deleted Successfully.');
+        return redirect('home/banner');
     }
 }
