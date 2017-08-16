@@ -341,7 +341,7 @@
                                     <i class="fa fa-university"></i><span class="filter-title">Featured Institutions</span>
                                 </a></li>
                                 <li><a href="#filter" data-option-value=".cou">
-                                    <i class="fa fa-users"></i><span class="filter-title">Featured Consultants</span>
+                                    <i class="fa fa-users"></i><span class="filter-title">Featured Courses</span>
                                 </a></li>
                             </ul>
                             <!--.option-lists-->
@@ -403,14 +403,9 @@
                                   <div class="hover-part">
                                     <div class="txt-holder">
                                       <span class="name">
-                                      Petaling Jaya, Malaysia Language School
-                                      </span>
-                                      <span class="type">
-                                        Funding Type : Private
-                                      </span>
                                       <span class="profile-link">
                                         <a href="#" class="btn btn-more">
-                                          view profile
+                                          view course
                                         </a>
                                       </span>
                                     </div>
@@ -503,15 +498,9 @@
                                   </div>
                                   <div class="hover-part">
                                     <div class="txt-holder">
-                                      <span class="name">
-                                      Petaling Jaya, Malaysia Language School
-                                      </span>
-                                      <span class="type">
-                                        Funding Type : Private
-                                      </span>
                                       <span class="profile-link">
                                         <a href="#" class="btn btn-more">
-                                          view profile
+                                          view course
                                         </a>
                                       </span>
                                     </div>
@@ -569,15 +558,9 @@
                                   </div>
                                   <div class="hover-part">
                                     <div class="txt-holder">
-                                      <span class="name">
-                                      Petaling Jaya, Malaysia Language School
-                                      </span>
-                                      <span class="type">
-                                        Funding Type : Private
-                                      </span>
                                       <span class="profile-link">
                                         <a href="#" class="btn btn-more">
-                                          view profile
+                                          view course
                                         </a>
                                       </span>
                                     </div>

@@ -1,6 +1,6 @@
 @extends('backend.header')
 @section('content')
-
+<div class="navigation-holder">
         <a href="{{URL::to('/home/applications')}}"  >
             <span class="avatar-name">
                 Applications
@@ -19,7 +19,7 @@
             </span>
 
         </a>
-
+</div>
 
 
     @stop
