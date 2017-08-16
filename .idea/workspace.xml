@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e90cde7f-4e50-4563-b875-c43f57b35605" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/live/resources/views/backend/banner/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/live/resources/views/backend/banner/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/live/resources/views/backend/banner/partial/form.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/live/resources/views/backend/banner/table.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/advertisements/1502359849-profile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/advertisements/1502360293-profile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/advertisements/1502360747-profile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/advertisements/1502781191-profile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/advertisements/1502781228-profile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/gmp_testbit(a, index)original.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/gmp_testbit(a, index)resized.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/live/app/Http/Controllers/AdvertisementController.php" afterPath="$PROJECT_DIR$/live/app/Http/Controllers/AdvertisementController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/live/config/app.php" afterPath="$PROJECT_DIR$/live/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/live/resources/views/backend/advertisement/table.blade.php" afterPath="$PROJECT_DIR$/live/resources/views/backend/advertisement/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/live/resources/views/backend/dashboard.blade.php" afterPath="$PROJECT_DIR$/live/resources/views/backend/dashboard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/live/resources/views/backend/navigation/partial/form.blade.php" afterPath="$PROJECT_DIR$/live/resources/views/backend/navigation/partial/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/live/routes/web.php" afterPath="$PROJECT_DIR$/live/routes/web.php" />
-    </list>
+    <list default="true" id="e90cde7f-4e50-4563-b875-c43f57b35605" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,8 +80,8 @@
         <option value="$PROJECT_DIR$/live/resources/views/backend/banner/table.blade.php" />
         <option value="$PROJECT_DIR$/live/app/Banner.php" />
         <option value="$PROJECT_DIR$/live/resources/views/backend/banner/create.blade.php" />
-        <option value="$PROJECT_DIR$/live/app/Http/Controllers/BannerController.php" />
         <option value="$PROJECT_DIR$/live/resources/views/backend/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/live/app/Http/Controllers/BannerController.php" />
       </list>
     </option>
   </component>
@@ -534,12 +516,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1502858815265</updated>
-      <workItem from="1502858821701" duration="9077000" />
+      <workItem from="1502858821701" duration="9690000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9077000" />
+    <option name="totallyTimeSpent" value="9690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="-4" width="1323" height="772" extended-state="6" />
@@ -668,10 +650,10 @@
         <state relative-caret-position="101">
           <caret line="20" column="39" lean-forward="false" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding>
-            <marker date="1502867771139" expanded="true" signature="494:508" ph="..." />
-            <marker date="1502867771139" expanded="true" signature="494:754" ph="..." />
-            <marker date="1502867771139" expanded="true" signature="507:508" ph="..." />
-            <marker date="1502867771139" expanded="true" signature="517:739" ph="..." />
+            <marker date="1502874044894" expanded="true" signature="494:508" ph="..." />
+            <marker date="1502874044894" expanded="true" signature="494:754" ph="..." />
+            <marker date="1502874044894" expanded="true" signature="507:508" ph="..." />
+            <marker date="1502874044894" expanded="true" signature="517:739" ph="..." />
           </folding>
         </state>
       </provider>
