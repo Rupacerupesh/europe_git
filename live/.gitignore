@@ -3,6 +3,7 @@
 /storage/*.key
 /vendor
 /.idea
+/.idea/workspace.xml
 /uploads
 Homestead.json
 Homestead.yaml
