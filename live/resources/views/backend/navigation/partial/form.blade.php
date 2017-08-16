@@ -27,7 +27,7 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label>status</label>
+            <label>Publish</label>
             <label class="switch">
                 {{Form::checkbox('status', null, null)}}
                 <span class="slider round"></span>
