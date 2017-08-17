@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Form;
 Use App\Application;
+Use App\Testimonial;
 use Validatior;
 class FrontController extends Controller
 {
     public function index(){
-    	// die('here');
-    	return view('frontend.index');
+       $testimonial=Testimonial::all();
+        return view('frontend.index',compact('testimonial'));
     }
     public function applyNow(){
     	// die('here');
