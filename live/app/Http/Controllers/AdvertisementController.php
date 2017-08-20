@@ -18,6 +18,7 @@ class AdvertisementController extends Controller
     public function index()
     {
        $advertisement_list=Advertisement::orderBy('id','DESC')->paginate(10);
+     
        return view('backend.advertisement.table',compact('advertisement_list'));
     }
 
@@ -73,7 +74,7 @@ class AdvertisementController extends Controller
     public function upload_image($image,$name) {
         $image = Image::make($image);
         $path = 'uploads/advertisements_resize/';
-        $image->resize(50,50);
+        $image->resize(360,340);
         // save resized
         $image->save($path.$name);
     }

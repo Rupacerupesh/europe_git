@@ -21,47 +21,60 @@
                         <span>Applications</span>
                     </a>
                 </li>
-                <li><a href="#" id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false">
+                <li><a href="#" id="btn-1" data-toggle="collapse" data-target="#submenu1" class="non-collapsed" aria-expanded="true">
                    <i class="pe-7s-graph"></i>
                    <span>Country </span></a>
                    <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
-                    <li><a href="{{ url('home/country/create') }}">Create country</a></li>
-                    <li><a href="{{ url('home/country') }}">Manage country</a></li>
+                    <li><a href="{{ url('home/country/create') }}"><span>Create country</span></a></li>
+                    <li><a href="{{ url('home/country') }}"><span>Manage country</span></a></li>
 
                 </ul>
 
             </li>
-            <li><a href="#" id="btn-2" data-toggle="collapse" data-target="#submenu2" aria-expanded="false">
+            <li><a href="#" id="btn-2" data-toggle="collapse" data-target="#submenu2" class="non-collapsed" aria-expanded="true">
                <i class="pe-7s-graph"></i>
                <span>Education Level </span></a>
                <ul class="nav collapse" id="submenu2" role="menu" aria-labelledby="btn-2">
-                <li><a href="{{ url('home/educationlevel/create') }}">Create educationlevel</a></li>
-                <li><a href="{{ url('home/educationlevel') }}">Manage educationlevel</a></li>
+                <li><a href="{{ url('home/educationlevel/create') }}"><span>Create educationlevel</span></a></li>
+                <li><a href="{{ url('home/educationlevel') }}"><span><i class="pe-7s-plus"></i><span>Manage educationlevel</span></a></li>
 
             </ul>
 
         </li>
-            <li><a href="#" id="btn-3" data-toggle="collapse" data-target="#submenu3" aria-expanded="false">
+            <li><a href="#" id="btn-3" data-toggle="collapse" data-target="#submenu3" class="non-collapsed" aria-expanded="true">
                <i class="pe-7s-graph"></i>
                <span>Interested Course</span></a>
                <ul class="nav collapse" id="submenu3" role="menu" aria-labelledby="btn-3">
-                <li><a href="{{ url('home/interestedcourse/create') }}">Create Interestedcourse</a></li>
-                <li><a href="{{ url('home/interestedcourse') }}">Manage Interestedcourse</a></li>
+                <li><a href="{{ url('home/interestedcourse/create') }}"></i><span>Create Interestedcourse</span></a></li>
+                <li><a href="{{ url('home/interestedcourse') }}"></i><span>Manage Interestedcourse</span></a></li>
 
             </ul>
 
         </li>
 
-             <li><a href="#" id="btn-4" data-toggle="collapse" data-target="#submenu4" aria-expanded="false">
+             <li><a href="#" id="btn-4" data-toggle="collapse" data-target="#submenu4" class="non-collapsed" aria-expanded="true">
                <i class="pe-7s-graph"></i>
                <span>Testimonial</span></a>
                <ul class="nav collapse" id="submenu4" role="menu" aria-labelledby="btn-4">
-                <li><a href="{{ url('home/testimonial/create') }}">Create testimonial</a></li>
-                <li><a href="{{ url('home/testimonial') }}">Manage testimonial</a></li>
+                <li><a href="{{ url('home/testimonial/create') }}"><i class="pe-7s-plus"></i><span>Create testimonial</span></a></li>
+                <li><a href="{{ url('home/testimonial') }}"><span>Manage testimonial</span></a></li>
 
             </ul>
 
         </li>
+    <!--     <li>
+                    <a href="#" data-toggle="collapse" data-target="#activity" class="non-collapsed" aria-expanded="true">
+                        <i class="pe-7s-user"></i>
+                        <span>Activity</span>
+                    </a>
+                    <ul id="activity" class="collapse in" aria-expanded="true">
+                      <li><a href="#"><i class="pe-7s-plus"></i>
+                        <span>add new</span></a></li>
+                      <li><a href="#"><i class="pe-7s-plus"></i>
+                        <span>add list</span></a></li>
+                    </ul>
+        </li> -->
+
     </ul>
 </div>
 

@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Form;
-Use App\Application;
-Use App\Testimonial;
+use App\Application;
+use App\Testimonial;
+use App\Advertisement;
+use App\Banner;
+
 use Validatior;
 class FrontController extends Controller
 {
     public function index(){
+        $banner=Banner::all();
+       $advertisement=Advertisement::all();
        $testimonial=Testimonial::all();
-        return view('frontend.index',compact('testimonial'));
+        return view('frontend.index',compact('testimonial','advertisement','banner'));
     }
     public function applyNow(){
     	// die('here');

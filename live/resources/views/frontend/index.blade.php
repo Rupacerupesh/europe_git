@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{URL::to('/')}}/live/public/lib/css/isotope.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/live/public/css/style.css">
 
+
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -90,26 +91,14 @@
   <main id="content">
     <section class="banner-section">
       <div id="home-banner" class="owl-carousel owl-theme">
+        @foreach($banner as $banners)
         <div class="item">
           <figure>
-            <img src="{{URL::to('/live/public/uploads/slider.jpg')}}" alt="">
+             <img src="<?php echo asset('/uploads/banners_resize/'.$banners->image) ?>">
           </figure>
         </div>
-        <div class="item">
-          <figure>
-            <img src="{{URL::to('/live/public/uploads/slider.jpg')}}" alt="">
-          </figure>
-        </div>
-        <div class="item">
-          <figure>
-            <img src="{{URL::to('/live/public/uploads/slider.jpg')}}" alt="">
-          </figure>
-        </div>
-        <div class="item">
-          <figure>
-            <img src="{{URL::to('/live/public/uploads/slider.jpg')}}" alt="">
-          </figure>
-        </div>
+        @endforeach
+        
       </div>
     </section>
     <!-- .banner-section -->
@@ -589,17 +578,23 @@
                               </div>
                               <!-- end isotope content -->
                               <div class="col-sm-6 col-md-4">
+                                @foreach($advertisement as $advertisements)
                                 <figure class="ad owl">
                                   <a href="#">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/ad.png" alt=""/>
-                                  </a>
-                                </figure>
-                                <figure class="ad">
+                                   <!--  <img src="{{URL::to('/')}}/live/public/uploads/ad.png" alt=""/> -->
+
+                                   <!-- <img src="{{URL::to('/').'/live/public/uploads/advertisements_resize/'.$advertisements->image}}" alt="{{$advertisements->image}}" > -->
+                                   <!-- {{ Html::image('/uploads/advertisements_resize/'.$advertisements->image)}} -->
+                                   <img src="<?php echo asset('/uploads/advertisements_resize/'.$advertisements->image) ?>"> </img>
+                                 </a>
+                               </figure>
+                               @endforeach
+                            <!--     <figure class="ad">
                                   <a href="#">
                                     <img src="{{URL::to('/')}}/live/public/uploads/ad1.png" alt=""/>
                                   </a>
-                                </figure>
-                                <figure class="ad">
+                                </figure> -->
+                            <!--     <figure class="ad">
                                   <a href="#">
                                     <img src="{{URL::to('/')}}/live/public/uploads/ad2.png" alt=""/>
                                   </a>
@@ -608,7 +603,7 @@
                                   <a href="#">
                                     <img src="{{URL::to('/')}}/live/public/uploads/ad3.jpg" alt=""/>
                                   </a>
-                                </figure>
+                                </figure> -->
                               </div>
                             </div>
                           </div>
@@ -625,28 +620,28 @@
                             <div class="item">
                               <div class="content">
                                 <p>
-                              
-                         
-                                {{$testimonials->description}}
-                              
-                               
+
+
+                                  {{$testimonials->description}}
+
+
                                 </p>
                                 <span class="customer">
                                   <span class="name">
-                                
-                                {{$testimonials->fullname}}
-                        
+
+                                    {{$testimonials->fullname}}
+
                                   </span>
                                   <span class="country">
-                                                            {{$testimonials->address}}
-                         
+                                    {{$testimonials->address}}
+
                                   </span>
                                 </span>
                                 <!-- .customer -->
                               </div>
 
                             </div>
-                             @endforeach
+                            @endforeach
                             <!--  -->
 
                           </div>

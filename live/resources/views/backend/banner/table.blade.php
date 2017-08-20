@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{$banner->title}}</td>
-                        <td><img src="{{URL::to('/').'/uploads/banners_resize/'.$banner->image}}" alt="{{$banner->image}}" ></td>
+                        <td><img src="{{URL::to('/').'/uploads/banners_resize/'.$banner->image}}" alt="{{$banner->image}}" width="50" height="50"></td>
 
                         <td>@if($banner->status==1)
                                 <i class="fa-tick"> Active</i>

@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\InterestedCourse;
 use Illuminate\Support\Str;
 
-
+use File;
+use Image;
 
 class InterestedCourseController extends Controller
 {
@@ -43,12 +44,20 @@ class InterestedCourseController extends Controller
      // dd($request);
         $this->validate($request,[
             'title' => 'required',
+            // 'image' => 'required',
           
         ]);
         $interestedcourse=new InterestedCourse();
         $interestedcourse->title=$request->title;
         $interestedcourse->slug=$slug = Str::slug($interestedcourse->title, '_');
-  
+  $destination_path = 'uploads/banners';
+        // dd($interestedcourse);
+        $name= time() . "-" . $request->file('image')->getClientOriginalName();
+        $image = $destination_path . '/' .$name;
+        $request->file('image')->move($destination_path, $image);
+        $this->upload_image($image,$name);
+         $interestedcourse->image=$name;
+        // $this->upload_image($image,$name);
         $interestedcourse->status=($request->status)?1:0;
             $result=$interestedcourse->save();
         if($result){
@@ -61,7 +70,13 @@ class InterestedCourseController extends Controller
         }
 
     }
-
+  public function upload_image($image,$name) {
+        $image = Image::make($image);
+    $path = 'uploads/banners_resize/';
+        $image->resize(50,50);
+        // save resized
+        $image->save($path.$name);
+    }
     /**
      * Display the specified resource.
      *
@@ -102,7 +117,25 @@ class InterestedCourseController extends Controller
         $interestedcourse=InterestedCourse::find($id);
         $interestedcourse->title=$request->title;
         $interestedcourse->slug=$slug = Str::slug($interestedcourse->title, '_');
-      
+          if ($request->file('image')!='') {
+//                die('here');
+            $destination_path = 'uploads/banners/';
+            $name= time() . "-" . $request->file('image')->getClientOriginalName();
+            $image = $destination_path . '/' .$name;
+
+            $request->file('image')->move($destination_path, $image);
+            $this->upload_image($image,$name);
+            if(file_exists($destination_path.'/'.$interestedcourse->image)){
+                unlink($destination_path.'/'.$interestedcourse->image);
+                unlink('uploads/banners_resize/'.$interestedcourse->image);
+
+            }
+
+        }
+        else{
+            $name=$interestedcourse->image;
+        }
+        $interestedcourse->image=$name;
         $interestedcourse->status=($request->status)?1:0;
         $result=$interestedcourse->save();
         if($result){

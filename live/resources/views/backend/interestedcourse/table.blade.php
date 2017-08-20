@@ -25,6 +25,7 @@
             <tr>
                 <th>SN</th>
                 <th>Title</th>
+                <th>Image</th>
                 
                 <th>Publish</th>
                 <th>Action</th>
@@ -38,6 +39,7 @@
             <tr>
                 <td>{{ $i++ }}</td>
                 <td>{{$interestedcourses->title}}</td>
+                <td><img src="{{URL::to('/').'/uploads/banners_resize/'.$interestedcourses->image}}" alt="{{$interestedcourses->image}}" ></td>
                 
                 <td>
                    @if($interestedcourses->status== 0)
