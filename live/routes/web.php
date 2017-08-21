@@ -37,6 +37,10 @@ Route::group(['middleware'=>['auth']],function() {
     Route::resource('/home/applications', 'ApplicationController');
     Route::resource('/home/navigation', 'NavigationController');
     Route::resource('/home/advertisement', 'AdvertisementController');
+    Route::resource('/home/country', 'CountryController');
+    Route::resource('/home/educationlevel', 'EducationLevelController');
+    Route::resource('/home/interestedcourse', 'InterestedCourseController');
+    Route::resource('/home/testimonial', 'TestimonialController');
     Route::resource('/home/banner', 'BannerController');
 
 });

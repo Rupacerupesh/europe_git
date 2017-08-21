@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{$advertisement->title}}</td>
-                        <td><img src="{{URL::to('/').'/uploads/advertisements_resize/'.$advertisement->image}}" alt="{{$advertisement->image}}" ></td>
+                        <td><img src="{{URL::to('/').'/uploads/advertisements_resize/'.$advertisement->image}}" alt="{{$advertisement->image}}" width="50" height="50"></td>
                         <td>{{$advertisement->url}}</td>
                         <td>@if($advertisement->status==1)
                                 <i class="fa-tick"> Active</i>

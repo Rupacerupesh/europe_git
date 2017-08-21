@@ -12,16 +12,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-//        DB::table('roles')->insert([
-//            'title' => 'admin',
-//        ]);
-//
-//        DB::table('users')->insert([
-//            'name' => 'admin',
-//            'email' => 'admin@gmail.com',
-//            'role_id' => 1,
-//            'password' => bcrypt('password'),
-//        ]);
+       DB::table('roles')->insert([
+           'title' => 'admin',
+       ]);
+
+       DB::table('users')->insert([
+           'name' => 'admin',
+           'email' => 'admin@gmail.com',
+           'role_id' => 1,
+           'password' => bcrypt('password'),
+       ]);
         DB::table('navigations')->insert([
             'title' => 'Home',
             'parent_id' => 0,
