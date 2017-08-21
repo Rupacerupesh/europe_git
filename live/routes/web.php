@@ -42,6 +42,7 @@ Route::group(['middleware'=>['auth']],function() {
     Route::resource('/home/interestedcourse', 'InterestedCourseController');
     Route::resource('/home/testimonial', 'TestimonialController');
     Route::resource('/home/banner', 'BannerController');
+    Route::resource('/home/institution', 'InstitutionController');
 
 });
 
