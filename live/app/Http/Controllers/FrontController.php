@@ -8,15 +8,18 @@ use App\Application;
 use App\Testimonial;
 use App\Advertisement;
 use App\Banner;
+use App\Navigation;
 
 use Validatior;
 class FrontController extends Controller
 {
     public function index(){
+        $navigation_parent=Navigation::where('parent_id','0')->get();
+       $navigation_children=Navigation::where('parent_id','!=','0')->get();
         $banner=Banner::all();
        $advertisement=Advertisement::all();
        $testimonial=Testimonial::all();
-        return view('frontend.index',compact('testimonial','advertisement','banner'));
+        return view('frontend.index',compact('testimonial','advertisement','banner','navigation_parent','navigation_children'));
     }
     public function applyNow(){
     	// die('here');

@@ -68,8 +68,33 @@
         <!-- #logo -->
         <nav id="primary-nav" class="col-sm-9 col-xs-7">
           <ul class="main-nav common-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            @foreach($navigation_parent as $parent)
+
+            <li><a href="#">{{$parent->title}}</a>
+            <?php
+              $count=0;
+            ?>
+            @foreach($navigation_children as $child)
+            <?php 
+            if($count==0){
+              echo "<ul>";
+
+            }
+                $count++;
+            ?>
+            @if($child->parent_id==$parent->id)
+             <li><a href="#">{{$child->title}}</a></li>
+            @endif
+            @endforeach
+            @if($count>0)
+            </ul>
+            <?php
+              $count=0;
+            ?>
+            @endif
+            </li>
+            @endforeach
+            <!-- <li><a href="#">About</a></li>
             <li><a href="#">Service</a></li>
             <li><a href="#">Insitution</a>
               <ul>
@@ -77,7 +102,7 @@
                 <li><a href="#">As Institution</a></li>
               </ul>
             </li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Contact</a></li> -->
           </ul>
           <!-- .main-nav -->
         </nav>
@@ -94,99 +119,79 @@
         @foreach($banner as $banners)
         <div class="item">
           <figure>
-             <img src="<?php echo asset('/uploads/banners_resize/'.$banners->image) ?>">
-          </figure>
-        </div>
-        @endforeach
-        
-      </div>
-    </section>
-    <!-- .banner-section -->
+           <img src="<?php echo asset('/uploads/banners_resize/'.$banners->image) ?>">
+         </figure>
+       </div>
+       @endforeach
 
-    <section class="form-section">
-      <div class="container clearfix">
-        <!-- .col-sm-4 col-xs-6 -->
-        <div class="col-xs-6">
-          <form class="common-form" action="">
-            <h3 class="form-title">
-              Find courses
-            </h3>
-            <!-- .form-title -->
-            <div class="form-group">
-              <select class="search-form">
-                <option value="AL">Alabama</option>
-                <option value="WY">Wyoming</option>
-                <option value="AL">Alabama</option>
-                <option value="WY">Wyoming</option>
-              </select>
-              <!-- .search-form -->
-            </div>
-            <div class="form-group">
-              <label for="txt">Keywords:</label>
-              <input type="text" class="form-control" id="txt">
-            </div>
-            <button type="submit" class="btn btn-5">Submit</button>
-          </form>
-        </div>
-        <!-- .col-sm-4 col-xs-6 -->
-        <div class="col-xs-6">
-          <form action="" class="common-form">
-            <h3 class="form-title">
-              Find insitution
-            </h3>
-            <!-- .form-title -->
-            <div class="form-group">
-              <select class="search-form">
-                <option value="AL">Alabama</option>
-                <option value="WY">Wyoming</option>
-                <option value="AL">Alabama</option>
-                <option value="WY">Wyoming</option>
-              </select>
-              <!-- .search-form -->
-            </div>
-            <div class="form-group">
-              <label for="txt">Keywords:</label>
-              <input type="text" class="form-control" id="txt">
-            </div>
-            <button type="submit" class="btn btn-5">Submit</button>
-          </form>
-        </div>
-        <!-- .col-sm-4 col-xs-6 -->
-      </div>
-    </section>
-    <!-- .form-section -->
+     </div>
+   </section>
+   <!-- .banner-section -->
 
-    <section class="work-intro-section">
-      <header class="text-center">
-        <h2>Learn How You Can Benefit from Uniagents as</h2>
-      </header>
-
-      <div class="container clearfix">
-        <div class="col-xs-6 col-sm-4">
-         <section class="intro-sec">
-           <header>
-             <i class="fa fa-university"></i>
-             <h3>insitution</h3>
-           </header>
-           <figure>
-             <img src="{{URL::to('/')}}/live/public/uploads/insitution.jpg" alt=""/>
-           </figure>
-           <div class="intro-sec">
-             <p>
-              Enhance your marketing efforts with more customized, relevant information. 
-            </p>
-            <a href="#" class="btn btn-5">Read more</a>
+   <section class="form-section">
+    <div class="container clearfix">
+      <!-- .col-sm-4 col-xs-6 -->
+      <div class="col-xs-6">
+        <form class="common-form" action="">
+          <h3 class="form-title">
+            Find courses
+          </h3>
+          <!-- .form-title -->
+          <div class="form-group">
+            <select class="search-form">
+              <option value="AL">Alabama</option>
+              <option value="WY">Wyoming</option>
+              <option value="AL">Alabama</option>
+              <option value="WY">Wyoming</option>
+            </select>
+            <!-- .search-form -->
           </div>
-          <!-- .intro-sec -->
-        </section>
-        <!-- .intro-sec -->
+          <div class="form-group">
+            <label for="txt">Keywords:</label>
+            <input type="text" class="form-control" id="txt">
+          </div>
+          <button type="submit" class="btn btn-5">Submit</button>
+        </form>
       </div>
+      <!-- .col-sm-4 col-xs-6 -->
+      <div class="col-xs-6">
+        <form action="" class="common-form">
+          <h3 class="form-title">
+            Find insitution
+          </h3>
+          <!-- .form-title -->
+          <div class="form-group">
+            <select class="search-form">
+              <option value="AL">Alabama</option>
+              <option value="WY">Wyoming</option>
+              <option value="AL">Alabama</option>
+              <option value="WY">Wyoming</option>
+            </select>
+            <!-- .search-form -->
+          </div>
+          <div class="form-group">
+            <label for="txt">Keywords:</label>
+            <input type="text" class="form-control" id="txt">
+          </div>
+          <button type="submit" class="btn btn-5">Submit</button>
+        </form>
+      </div>
+      <!-- .col-sm-4 col-xs-6 -->
+    </div>
+  </section>
+  <!-- .form-section -->
 
+  <section class="work-intro-section">
+    <header class="text-center">
+      <h2>Learn How You Can Benefit from Uniagents as</h2>
+    </header>
+
+    <div class="container clearfix">
       <div class="col-xs-6 col-sm-4">
        <section class="intro-sec">
          <header>
-           <i class="fa fa-user"></i>
-           <h3>students</h3>
+           <i class="fa fa-university"></i>
+           <h3>insitution</h3>
          </header>
          <figure>
            <img src="{{URL::to('/')}}/live/public/uploads/insitution.jpg" alt=""/>
@@ -202,7 +207,27 @@
       <!-- .intro-sec -->
     </div>
 
+    <div class="col-xs-6 col-sm-4">
+     <section class="intro-sec">
+       <header>
+         <i class="fa fa-user"></i>
+         <h3>students</h3>
+       </header>
+       <figure>
+         <img src="{{URL::to('/')}}/live/public/uploads/insitution.jpg" alt=""/>
+       </figure>
+       <div class="intro-sec">
+         <p>
+          Enhance your marketing efforts with more customized, relevant information. 
+        </p>
+        <a href="#" class="btn btn-5">Read more</a>
+      </div>
+      <!-- .intro-sec -->
+    </section>
+    <!-- .intro-sec -->
   </div>
+
+</div>
 </section>
 <!-- work-intro-section -->
 
