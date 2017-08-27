@@ -43,6 +43,10 @@ Route::group(['middleware'=>['auth']],function() {
     Route::resource('/home/testimonial', 'TestimonialController');
     Route::resource('/home/banner', 'BannerController');
     Route::resource('/home/institution', 'InstitutionController');
+    Route::get('/home/institution/{id}/add_more', ['as' => 'institution.addMore', 'uses' => 'InstitutionController@addMore']);
+    Route::post('/home/institution/store_more', ['as' => 'institution.storeMore', 'uses' => 'InstitutionController@store_more']);
+    Route::resource('/home/facility', 'FacilityController');
+    Route::resource('/home/course', 'CourseController');
 
 });
 

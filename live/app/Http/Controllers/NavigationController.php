@@ -28,7 +28,7 @@ class NavigationController extends Controller
     public function create()
     {
         $parents_list=[0=>'No Parents'];
-        $parents_list=array_replace_recursive($parents_list,Navigation::pluck('title','id')->toArray());
+        $parents_list=array_replace_recursive($parents_list,Navigation::where('parent_id',0)->pluck('title','id')->toArray());
 //        $parents_list
 //        return ($parents_list);
         return view('backend.navigation.create',compact('parents_list'));

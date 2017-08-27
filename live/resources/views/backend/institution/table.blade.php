@@ -25,8 +25,8 @@
             <tr>
                 <th>SN</th>
                 <th>Title</th>
-                <th>Image</th>
-                <th>Url</th>
+                <th>Logs</th>
+                <th>Established Year</th>
                 <th>Publish</th>
                 <th>Action</th>
             </tr>
@@ -39,8 +39,10 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{$institution->title}}</td>
-                        <td><img src="{{URL::to('/').'/uploads/institutions_resize/'.$institution->image}}" alt="{{$institution->image}}" ></td>
-                        <td>{{$institution->url}}</td>
+                       <td><img src="{{URL::to('/').'/uploads/institution/logo_resize/'.$institution->logo}}" alt="{{$institution->logo}}" width="50" height="50"></td>
+                        <td>{{$institution->estd_year}}</td>
+                      
+
                         <td>@if($institution->status==1)
                                 <i class="fa-tick"> Active</i>
                             @else
@@ -60,6 +62,10 @@
                                 </button>
 
                             </form>
+                            <a type="button" type="button" class="btn btn-primary btn-sm"
+                               href="{{ route('institution.addMore', array($institution->id)) }}">
+                                <i class="flaticon-edit"> More</i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach
