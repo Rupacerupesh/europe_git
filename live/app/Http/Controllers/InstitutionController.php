@@ -43,7 +43,7 @@ class InstitutionController extends Controller
      */
     public function store(Request $request)
     {
-
+// var_dump($request->featured); die;
      $this->validate($request,[
         'title' => 'required',
         'logo'=>'required',
@@ -71,6 +71,7 @@ class InstitutionController extends Controller
      $institution->student_no=$request->student_no;
      $institution->address=$request->address;
      $institution->schoolarship=($request->schoolarship)?1:0;
+     $institution->featured=($request->featured)?$request->featured:0;
      $institution->status=($request->status)?1:0;
      /*Upload  logo and banner*/
         $destination_path = 'uploads/institution/logo/';
@@ -168,6 +169,7 @@ class InstitutionController extends Controller
      $institution->student_no=$request->student_no;
      $institution->address=$request->address;
      $institution->schoolarship=($request->schoolarship)?1:0;
+     $institution->featured=($request->featured)?$request->featured:0;
      $institution->status=($request->status)?1:0;
 
      if ($request->file('logo')!='') {

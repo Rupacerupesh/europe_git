@@ -25,7 +25,6 @@
             <tr>
                 <th>SN</th>
                 <th>Title</th>
-                <th>Image</th>
               
                 <th>Publish</th>
                 <th>Action</th>
@@ -39,7 +38,7 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{$course->title}}</td>
-                        <td><img src="{{URL::to('/').'/uploads/courses/'.$course->image}}" alt="{{$course->image}}" width="50" height="50"></td>
+                        
                       
                         <td>@if($course->status==1)
                                 <i class="fa-tick"> Active</i>

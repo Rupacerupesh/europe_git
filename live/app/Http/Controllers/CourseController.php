@@ -7,6 +7,7 @@ use App\Course;
 use Illuminate\Support\Str;
 use File;
 use Image;
+use App\Navigation;
 
 class CourseController extends Controller
 {
@@ -28,6 +29,7 @@ class CourseController extends Controller
      */
     public function create()
     {
+        
 
         return view('backend.course.create');
     }
@@ -45,22 +47,13 @@ class CourseController extends Controller
             'title' => 'required',
             // 'image'=>'required',
             'description'=>'required',
-            'short_info'=>'required',
+            'fee'=>'required|numeric',
             ]);
         $course=new course();
         $course->title=$request->title;
         $course->description=$request->description;
-        // dd($course);
-        $course->short_info=$request->short_info;
+        $course->fee=$request->fee;
         $course->slug=$slug = Str::slug($course->title, '_');
-        /*image upload start*/
-        $destination_path = 'uploads/courses/';
-        $name= time() . "-" . $request->file('image')->getClientOriginalName();
-        $image = $destination_path . '/' .$name;
-        $request->file('image')->move($destination_path, $image);
-        $this->upload_image($image,$name);
-        /*image upload end*/
-        $course->image=$name;
         $course->status=($request->status)?1:0;
         $result=$course->save();
         if($result){
@@ -120,35 +113,14 @@ class CourseController extends Controller
         'title' => 'required',
             // 'image'=>'required',
         'description'=>'required',
-        'short_info'=>'required',
+        'fee'=>'required|numeric',
         ]);
       
        $course=Course::find($id);
        $course->title=$request->title;
        $course->description=$request->description;
-         // dd($course);
-       $course->short_info=$request->short_info;
+       $course->fee=$request->fee;
         $course->slug=$slug = Str::slug($course->title, '_');
-//         /*image upload*/
-        if ($request->file('image')!='') {
-//                die('here');
-            $destination_path = 'uploads/courses/';
-            $name= time() . "-" . $request->file('image')->getClientOriginalName();
-            $image = $destination_path . '/' .$name;
-
-            $request->file('image')->move($destination_path, $image);
-            $this->upload_image($image,$name);
-            if(file_exists($destination_path.'/'.$course->image)){
-                unlink($destination_path.'/'.$course->image);
-                unlink('uploads/courses_resize/'.$course->image);
-
-            }
-
-        }
-        else{
-            $name=$course->image;
-        }
-        $course->image=$name;
         $course->status=($request->status)?1:0;
         $result=$course->save();
         if($result){

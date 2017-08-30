@@ -57,8 +57,8 @@
         <div class="form-group">
             <label>Logo</label>
             {{Form::file('logo')}}
-            @if( isset($advertisement) && file_exists('uploads/advertisements/'.$advertisement->logo))
-                <img src="{{URL::to('/').'/uploads/advertisements/'.$advertisement->logo}}" alt="{{$advertisement->logo}}" width="100" height="100">
+            @if( isset($institution) && file_exists('uploads/institution/logo/'.$institution->logo))
+                <img src="{{URL::to('/').'/uploads/institution/logo/'.$institution->logo}}" alt="{{$institution->logo}}" width="100" height="100">
             @endif
             @if ($errors->has('logo'))
                 <span class="text-danger"> {{$errors->first('logo')}}</span>
@@ -69,8 +69,8 @@
         <div class="form-group">
             <label>Banner</label>
             {{Form::file('banner')}}
-            @if( isset($advertisement) && file_exists('uploads/advertisements/'.$advertisement->banner))
-                <img src="{{URL::to('/').'/uploads/advertisements/'.$advertisement->banner}}" alt="{{$advertisement->banner}}" width="100" height="100">
+            @if( isset($institution) && file_exists('uploads/institution/banner/'.$institution->banner))
+                <img src="{{URL::to('/').'/uploads/institution/banner/'.$institution->banner}}" alt="{{$institution->banner}}" width="100" height="100">
             @endif
             @if ($errors->has('banner'))
                 <span class="text-danger"> {{$errors->first('banner')}}</span>
@@ -162,6 +162,15 @@
     </div>
 
     <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Address</label>
+                {{Form::text('address',null,['class'=>'form-control', 'placeholder'=>'Address'])}}
+                @if ($errors->has('address'))
+                    <span class="text-danger"> {{$errors->first('address')}}</span>
+                @endif
+            </div>
+        </div>
          <div class="col-md-4">
             <div class="form-group">
                 <label>Latitude</label>
@@ -189,11 +198,30 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label>Address</label>
-            {{Form::text('address',null,['class'=>'form-control', 'placeholder'=>'Address'])}}
-            @if ($errors->has('address'))
-                <span class="text-danger"> {{$errors->first('address')}}</span>
-            @endif
+                <label>Featured Profile</label>
+                     <label class="switch">
+                    <input name="featured" type="checkbox" value="1"  
+                    @if(isset($institution->featured))
+                    @if($institution->featured==1)checked 
+                    @endif
+                    @endif>
+                    
+                    <span class="slider round"></span>
+                </label>
+           
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Featured Course</label>
+            <label class="switch">
+                <input name="featured" type="checkbox" value="2" 
+                @if(isset($institution->featured))
+                @if($institution->featured==2)checked 
+                @endif
+                @endif>
+                <span class="slider round"></span>
+           </label>
         </div>
     </div>
     <div class="col-md-4">
