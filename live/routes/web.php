@@ -17,6 +17,7 @@ Route::post('apply', 'FrontController@storeApplication');
 Route::get('/chat', function () {
     return view('chat');
 });
+Route::get('institution', 'FrontController@institution');
 // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
@@ -47,6 +48,5 @@ Route::group(['middleware'=>['auth']],function() {
     Route::post('/home/institution/store_more', ['as' => 'institution.storeMore', 'uses' => 'InstitutionController@store_more']);
     Route::resource('/home/facility', 'FacilityController');
     Route::resource('/home/course', 'CourseController');
-
 });
 

@@ -106,9 +106,9 @@ html{
 
 // Clearfix
 @mixin clearfix() {
-	content: "";
-	display: table;
-	table-layout: fixed;
+  content: "";
+  display: table;
+  table-layout: fixed;
 }
 
 @mixin placeholder {
@@ -132,11 +132,11 @@ html{
 
 // Clear after (not all clearfix need this also)
 @mixin clearfix-after() {
-	clear: both;
+  clear: both;
 }
 
 @mixin text-transform{
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 

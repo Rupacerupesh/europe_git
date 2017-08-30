@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>
            <span>
-        <a href="{{ url('home/testimonal/create') }}">
+        <a href="{{ url('home/testimonial/create') }}">
             <button type="button" class="btn btn-success" id="viewbtn">
                 Add New
             </button>

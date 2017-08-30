@@ -22,8 +22,16 @@ class FrontController extends Controller
         return view('frontend.index',compact('testimonial','advertisement','banner','navigation_parent','navigation_children'));
     }
     public function applyNow(){
+         $navigation_parent=Navigation::where('parent_id','0')->get();
+       $navigation_children=Navigation::where('parent_id','!=','0')->get();
     	// die('here');
-    	return view('frontend.applyNow');
+    	return view('frontend.applyNow',compact('navigation_parent','navigation_children'));
+    }
+    public function institution(){
+         $navigation_parent=Navigation::where('parent_id','0')->get();
+       $navigation_children=Navigation::where('parent_id','!=','0')->get();
+        // die('here');
+        return view('frontend.institution',compact('navigation_parent','navigation_children'));
     }
     public function storeApplication(Request $request){
         $this->validate($request, [
