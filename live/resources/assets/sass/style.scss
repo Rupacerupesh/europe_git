@@ -444,14 +444,16 @@ body{
 			margin-top: 0;
 			text-transform: capitalize;
 		}
-		&.banner-inner{
+		&.banner-section{
 			padding: 0;
 			figure{
 				height:400px;
 			}
 		}
+
 		&.banner-inner{
 			position: relative;
+			padding: 0;
 			.insitution-logo{
 				position: absolute;
 				left:2%;

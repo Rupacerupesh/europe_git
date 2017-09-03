@@ -1421,16 +1421,17 @@ body .owl-theme .owl-dots .owl-dot:hover span {
   text-transform: capitalize;
 }
 
-#content > section.banner-inner {
+#content > section.banner-section {
   padding: 0;
 }
 
-#content > section.banner-inner figure {
+#content > section.banner-section figure {
   height: 400px;
 }
 
 #content > section.banner-inner {
   position: relative;
+  padding: 0;
 }
 
 #content > section.banner-inner .insitution-logo {

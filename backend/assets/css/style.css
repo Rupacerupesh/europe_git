@@ -306,9 +306,15 @@ input:checked + .slider:before {
 .navigation-holder{
     background: green;
     padding: 10px;
+    box-shadow: 1px 4px 8px 0px #000;
 }
 
 .navigation-holder a{
     display: inline-block;
     color: #fff;
+    border-left: 1px solid #fff;
+}
+
+.navigation-holder a:first-child{
+    border: none;
 }
