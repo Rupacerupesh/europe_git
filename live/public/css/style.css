@@ -1425,10 +1425,6 @@ body .owl-theme .owl-dots .owl-dot:hover span {
   padding: 0;
 }
 
-#content > section.banner-section figure {
-  height: 400px;
-}
-
 #content > section.banner-inner {
   position: relative;
   padding: 0;
@@ -1458,6 +1454,10 @@ body .owl-theme .owl-dots .owl-dot:hover span {
   text-align: right;
   font-size: 21px;
   font-size: 1.3125rem;
+}
+
+#content > section.contact h2 {
+  margin-top: 0;
 }
 
 section.figure-desc {

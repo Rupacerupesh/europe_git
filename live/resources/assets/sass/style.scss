@@ -435,7 +435,6 @@ body{
 		}
 	}
 }
-
 #content{
 	& > section{
 		overflow: hidden;
@@ -446,9 +445,6 @@ body{
 		}
 		&.banner-section{
 			padding: 0;
-			figure{
-				height:400px;
-			}
 		}
 
 		&.banner-inner{
@@ -475,6 +471,11 @@ body{
 					text-align: right;
 					@include font-size(21/16);
 				}
+			}
+		}
+		&.contact{
+			h2{
+				margin-top:0;
 			}
 		}
 	}

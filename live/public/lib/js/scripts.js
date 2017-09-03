@@ -123,7 +123,8 @@ $(window).ready(function(){
 
 
         $container.isotope({
-            itemSelector : '.isotope-item'
+            itemSelector : '.isotope-item',
+            filter: '.ins'
         });
 
         $select.change(function() {
@@ -137,6 +138,8 @@ $(window).ready(function(){
         // isotope Filtering
         var $optionSets = $('#filters .option-lists'),
             $optionLinks = $optionSets.find('a');
+
+        
 
         $optionLinks.click(function(){
             var $this = $(this);
