@@ -71,7 +71,7 @@ class BannerController extends Controller
     public function upload_image($image,$name) {
         $image = Image::make($image);
         $path = 'uploads/banners_resize/';
-        $image->resize(1920,700);
+        $image->resize(1351,493);
         // save resized
         $image->save($path.$name);
     }

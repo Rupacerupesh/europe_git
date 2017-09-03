@@ -4,11 +4,11 @@
 <main id="content">
     <section class="banner-inner">
     <h1 class="insitution-logo">
-        <img src="{{URL::to('/live/public/uploads/inst-logo.jpg')}}" alt=""/>
+        <img src="{{URL::to('/')}}/uploads/institution/logo_resize/{{$institution_details->logo}}" alt=""/>
     </h1>
         <figure class="banner-img">
-            <img src="{{URL::to('/live/public/uploads/slider.png')}}" class="img-responsive" height="400" alt=""/>
-        <figcaption>Group of Russian State Universities - RACUS</figcaption>
+            <img src="{{URL::to('/')}}/uploads/institution/banner_resize/{{$institution_details->banner}}" class="img-responsive" height="400" alt=""/>
+        <figcaption>{{$institution_details->title}}</figcaption>
         </figure>
         <!-- .banner-img -->
     </section>
@@ -28,41 +28,49 @@
                     <div class="tables">
                         <div class="table-rows">
                             <div class="table-cells">
-                                <span class="head"> Location </span> Saint-Petersburg,  
+                                <span class="head"> Location </span> {{$institution_details->address}} 
                             </div>       
                             <div class="table-cells">
-                                <span class="head">Facilities</span> <i class="fa fa-book"></i><i class="fa fa-building"></i><i class="fa fa-users"></i><i class="fa fa-spotify"></i><i class="fa fa-wifi"></i>
+                                <span class="head">Facilities</span> 
+                                @foreach($institution_details->facility as $facility)
+                                <i title="{{$facility->title}}" class="{{$facility->logo}}"></i>
+                                @endforeach
+                                
                             </div>
                         </div>
                         <!-- .table-rows -->
 
                         <div class="table-rows">
                             <div class="table-cells">
-                                <span class="head"> Funding Type </span> private  
+                                <span class="head"> Funding Type </span> {{$institution_details->funding_type}}  
                             </div>       
                             <div class="table-cells">
-                                <span class="head">No. of Students</span> 200
+                                <span class="head">No. of Students</span> {{$institution_details->student_no}}
                             </div>
                         </div>
                         <!-- .table-rows -->
 
                         <div class="table-rows">
                             <div class="table-cells">
-                                <span class="head"> Type </span> University  
-                            </div>       
+                                <span class="head"> Type </span> {{$institution_details->institution_type}}  
+                            </div> 
+                            @if($institution_details->schoolarship==1)      
                             <div class="table-cells">
                                 <span class="head">Scholarship</span> <i class="fa fa-mortar-board"></i>
                             </div>
+                            @endif
                         </div>
                         <!-- .table-rows -->
 
                         <div class="table-rows">
                             <div class="table-cells">
-                                <span class="head"> Year of Establishment </span> 1995  
-                            </div>       
+                                <span class="head"> Year of Establishment </span> {{$institution_details->estd_year}} 
+                            </div> 
+                             @if($institution_details->marketing_material==1)      
                             <div class="table-cells">
                                 <span class="head">Marketing Material</span> <i class="fa fa-file-pdf-o"></i>
                             </div>
+                            @endif
                         </div>
                         <!-- .table-rows -->
                     </div>
@@ -71,58 +79,15 @@
                 </div>
                 <div class="tab-content">
                     <div class="course-listing clearfix">
+                    @foreach($institution_details->course as $course)
                         <div class="col-sm-4 col-xs-6">
                             <div class="course">
-                                <h4>Banking And Audit</h4>
-                                <span class="head"><strong>Fees:</strong>Rs.1200</span>
+                                <h4>{{$course->title}}</h4>
+                                <span class="head"><strong>Fees:</strong>Rs.{{$course->title}}</span>
                                 <a href="#" class="btn btn-5">apply online</a>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-xs-6">
-                           <div class="course">
-                                <h4>Economics Audit</h4>
-                                <span class="head"><strong>Fees:</strong>Rs.10</span>
-                                <a href="#" class="btn btn-5">apply online</a>
-                            </div> 
-                        </div>
-                        
-                         <div class="col-sm-4 col-xs-6">
-                             <div class="course">
-                                <h4>Economics Nepal</h4>
-                                <span class="head"><strong>Fees:</strong>Rs.10</span>
-                                <a href="#" class="btn btn-5">apply online</a>
-                            </div>
-                         </div>
-                         <div class="col-sm-4 col-xs-6">
-                           <div class="course">
-                                <h4>Economics Audit</h4>
-                                <span class="head"><strong>Fees:</strong>Rs.10</span>
-                                <a href="#" class="btn btn-5">apply online</a>
-                            </div> 
-                        </div>
-                        
-                         <div class="col-sm-4 col-xs-6">
-                             <div class="course">
-                                <h4>Economics Nepal</h4>
-                                <span class="head"><strong>Fees:</strong>Rs.10</span>
-                                <a href="#" class="btn btn-5">apply online</a>
-                            </div>
-                         </div>
-                         <div class="col-sm-4 col-xs-6">
-                           <div class="course">
-                                <h4>Economics Audit</h4>
-                                <span class="head"><strong>Fees:</strong>Rs.10</span>
-                                <a href="#" class="btn btn-5">apply online</a>
-                            </div> 
-                        </div>
-                        
-                         <div class="col-sm-4 col-xs-6">
-                             <div class="course">
-                                <h4>Economics Nepal</h4>
-                                <span class="head"><strong>Fees:</strong>Rs.10</span>
-                                <a href="#" class="btn btn-5">apply online</a>
-                            </div>
-                         </div>
+                        @endforeach
                     </div>
                     <!-- .course-listing -->
                 </div>
@@ -177,6 +142,27 @@
 
 </main>
 <!-- #content -->
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB__qd-dGSVofxmpga8YBEFRsxgIMWH79Q&callback=initMap"></script>
+<script type="text/javascript">
+    var map; //Will contain map object.
 
+    //Function called to initialize / create the map.
+    //This is called when the page has loaded.
+     function initMap() {
+        var centerpoint = {lat: {{$institution_details->latitude}}, lng: {{$institution_details->longitude}}};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: centerpoint
+        }); 
+        var marker = new google.maps.Marker({
+          position: centerpoint,
+          map: map
+        });
+      }
+
+
+    //Load the map when the page has finished loading.
+    google.maps.event.addDomListener(window, 'load', initMap);
+</script>
 @stop
 

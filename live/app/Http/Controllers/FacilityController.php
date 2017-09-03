@@ -50,13 +50,7 @@ class FacilityController extends Controller
         $facility=new Facility();
         $facility->title=$request->title;
         $facility->slug=$slug = Str::slug($facility->title, '_');
-        $destination_path = 'uploads/facility';
-        $name= time() . "-" . $request->file('logo')->getClientOriginalName();
-        $image = $destination_path . '/' .$name;
-        $request->file('logo')->move($destination_path, $image);
-        $this->upload_image($image,$name);
-        /*image upload end*/
-        $facility->logo=$name;
+        $facility->logo=$request->logo;
         $facility->status=($request->status)?1:0;
             $result=$facility->save();
         if($result){
@@ -117,27 +111,7 @@ class FacilityController extends Controller
         $facility=facility::find($id);
         $facility->title=$request->title;
         $facility->slug=$slug = Str::slug($facility->title, '_');
-                /*image upload*/
-        if ($request->file('logo')!='') {
-//                die('here');
-            $destination_path = 'uploads/facility';
-            $name= time() . "-" . $request->file('logo')->getClientOriginalName();
-            $image = $destination_path . '/' .$name;
-
-            $request->file('logo')->move($destination_path, $image);
-            $this->upload_image($image,$name);
-            if(file_exists($destination_path.'/'.$facility->logo)){
-                unlink($destination_path.'/'.$facility->logo);
-                unlink('uploads/facility_resize/'.$facility->logo);
-
-            }
-
-        }
-        else{
-            // die('here');
-            $name=$facility->logo;
-        }
-        $facility->logo=$name;
+        $facility->logo=$request->logo;
         $facility->status=($request->status)?1:0;
         $result=$facility->save();
         if($result){

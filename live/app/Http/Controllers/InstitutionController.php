@@ -11,6 +11,7 @@ use App\Facility;
 use App\Course;
 use App\InstitutionHasFacility;
 use App\InstitutionHasCourse;
+use App\Navigation;
 class InstitutionController extends Controller
 {
     /**
@@ -100,14 +101,14 @@ class InstitutionController extends Controller
     public function upload_logo($image,$name) {
         $image = Image::make($image);
         $path = 'uploads/institution/logo_resize/';
-        $image->resize(1920,700);
+        $image->resize(300,170);
         // save resized
         $image->save($path.$name);
     }
     public function upload_banner($image,$name) {
         $image = Image::make($image);
         $path = 'uploads/institution/banner_resize/';
-        $image->resize(1920,700);
+        $image->resize(1350,400);
         // save resized
         $image->save($path.$name);
     }
@@ -267,5 +268,14 @@ class InstitutionController extends Controller
         session()->flash('message', 'Something Went Wrong! Please Try Again.');
         return redirect()->back()->withInput();
     }
+    }
+    public function institution_details($slug){
+        $navigation_parent=Navigation::where('parent_id','0')->get();
+       $navigation_children=Navigation::where('parent_id','!=','0')->get();
+        $institution_details=Institution::where('slug',$slug)->firstOrFail();
+        // var_dump($institution_details->facility[1]->slug); die;
+        return view('frontend.institution',compact('navigation_parent','navigation_children','institution_details'));
+
+
     }
 }

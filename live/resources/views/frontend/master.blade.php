@@ -33,7 +33,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB__qd-dGSVofxmpga8YBEFRsxgIMWH79Q&callback=initMap"></script>
+    <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB__qd-dGSVofxmpga8YBEFRsxgIMWH79Q&callback=initMap"></script> -->
 
     <!-- Google Webfonts
     ================================================== -->
@@ -63,7 +63,7 @@
     <div class="bottom-header">
       <div class="container clearfix">
         <h1 id="logo" class="col-sm-3 col-xs-5">
-          <a href="index.html">
+          <a href="{{URL::to('/')}}">
             <img src="{{URL::to('/')}}/live/public/images/logo.png" alt=""/>
           </a>
         </h1>

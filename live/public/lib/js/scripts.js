@@ -174,23 +174,4 @@ $(window).ready(function(){
 // Map
 //map.js
 
-    //Set up some of our variables.
-    var map; //Will contain map object.
-
-    //Function called to initialize / create the map.
-    //This is called when the page has loaded.
-     function initMap() {
-        var centerpoint = {lat: 27.706140, lng: 85.315097};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: centerpoint
-        });
-        var marker = new google.maps.Marker({
-          position: centerpoint,
-          map: map
-        });
-      }
-
-
-    //Load the map when the page has finished loading.
-    google.maps.event.addDomListener(window, 'load', initMap);
+   

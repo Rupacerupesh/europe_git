@@ -17,7 +17,8 @@ Route::post('apply', 'FrontController@storeApplication');
 Route::get('/chat', function () {
     return view('chat');
 });
-Route::get('institution', 'FrontController@institution');
+// Route::get('institution', 'FrontController@institution');
+Route::get('institution/{name}', 'InstitutionController@institution_details');
 // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');

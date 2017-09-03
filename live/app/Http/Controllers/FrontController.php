@@ -9,6 +9,7 @@ use App\Testimonial;
 use App\Advertisement;
 use App\Banner;
 use App\Navigation;
+use App\Institution;
 
 use Validatior;
 class FrontController extends Controller
@@ -16,10 +17,11 @@ class FrontController extends Controller
     public function index(){
         $navigation_parent=Navigation::where('parent_id','0')->get();
        $navigation_children=Navigation::where('parent_id','!=','0')->get();
-        $banner=Banner::all();
-       $advertisement=Advertisement::all();
-       $testimonial=Testimonial::all();
-        return view('frontend.index',compact('testimonial','advertisement','banner','navigation_parent','navigation_children'));
+        $banner=Banner::where('status',1)->orderBy('id','DESC')->get();
+       $advertisement=Advertisement::where('status',1)->orderBy('id','DESC')->get();
+       $testimonial=Testimonial::where('status',1)->orderBy('id','DESC')->get();
+       $institution_front=Institution::where('status',1)->where('featured','!=','0')->orderBy('id','DESC')->get();
+        return view('frontend.index',compact('testimonial','advertisement','banner','navigation_parent','navigation_children','institution_front'));
     }
     public function applyNow(){
          $navigation_parent=Navigation::where('parent_id','0')->get();

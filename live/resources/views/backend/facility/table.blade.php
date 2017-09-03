@@ -40,7 +40,7 @@
                         <td>{{ $i++ }}</td>
                         <td>{{$facilitys->title}}</td>
                      
-                        <td><img src="{{URL::to('/').'/uploads/facility_resize/'.$facilitys->logo}}" alt="{{$facilitys->logo}}" width="50" height="50"></td>
+                        <td><i class="{{$facilitys->logo}}"></i></td>
                       
                         <td>@if($facilitys->status==1)
                                 <i class="fa-tick"> Active</i>

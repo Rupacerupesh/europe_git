@@ -256,31 +256,33 @@
                   <div class="row">
                     <!--Isotope Section-->
                         <div id="isotopes-container" class="col-sm-6 col-md-8">
+                        @foreach($institution_front as $institution)
+                        @if($institution->featured==1)
                             <div class="col-sm-5 isotope-item ins">
                                 <section>
                                   <figure class="feature-logo">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/inst-logo.jpg" alt=""/>
+                                    <img src="{{URL::to('/')}}/uploads/institution/logo_resize/{{$institution->logo}}" alt=""/>
                                   </figure>
                                   <!-- .feature-logo -->
                                   <div class="desc-part">
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>Toronto Institute of Pharmaceutical Technology (TIPT®) is Canada’s premier pharmaceutical Institute of education, technology.
+                                    <h3>{{$institution->title}}</h3>
+                                    <p>{!!$institution->short_intro!!}
                                     </p>
                                   </div>
                                   <div class="hover-part">
                                     <div class="txt-holder">
                                       <span class="name">
-                                      Petaling Jaya, Malaysia Language School
+                                      {{$institution->address}}
                                       </span>
                                       <span class="type">
-                                        Funding Type : Private
+                                        Funding Type : {{$institution->funding_type}}
                                       </span>
                                       <span class="btns">
                                         <a href="#" class="btn btn-5">apply</a>
-                                        <a href="#" class="btn btn-5">contact</a>
+                                        <a href="{{URL::to('/')}}/institution/{{$institution->slug}}#inst-tab3" class="btn btn-5">contact</a>
                                       </span>
                                       <span class="profile-link">
-                                        <a href="#" class="btn btn-more">
+                                        <a href="{{URL::to('/')}}/institution/{{$institution->slug}}" class="btn btn-more">
                                           view profile
                                         </a>
                                       </span>
@@ -290,23 +292,24 @@
                                 </section>
                             </div>
                             <!--.isotope-item-->
-
+                            @endif
+                            @if($institution->featured==2)
                             <div class="col-sm-5 isotope-item cou">
                                 <section>
                                   <figure class="feature-logo">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/inst-logo.jpg" alt=""/>
+                                    <img src="{{URL::to('/')}}/uploads/institution/logo_resize/{{$institution->logo}}" alt=""/>
                                   </figure>
                                   <!-- .feature-logo -->
                                   <div class="desc-part">
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>Toronto Institute of Pharmaceutical Technology (TIPT®) is Canada’s premier pharmaceutical Institute of education, technology.
+                                    <h3>{{$institution->title}}</h3>
+                                    <p>{!!$institution->short_intro!!}
                                     </p>
                                   </div>
                                   <div class="hover-part">
                                     <div class="txt-holder">
                                       <span class="name">
                                       <span class="profile-link">
-                                        <a href="#" class="btn btn-more">
+                                        <a href="{{URL::to('/')}}/institution/{{$institution->slug}}#inst-tab2" class="btn btn-more">
                                           view course
                                         </a>
                                       </span>
@@ -316,161 +319,9 @@
                                 </section>
                             </div>
                             <!--.isotope-item-->
-
-                            <div class="col-sm-5 isotope-item ins">
-                                <section>
-                                  <figure class="feature-logo">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/inst-logo.jpg" alt=""/>
-                                  </figure>
-                                  <!-- .feature-logo -->
-                                  <div class="desc-part">
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>Toronto Institute of Pharmaceutical Technology (TIPT®) is Canada’s premier pharmaceutical Institute of education, technology.
-                                    </p>
-                                  </div>
-                                  <div class="hover-part">
-                                    <div class="txt-holder">
-                                      <span class="name">
-                                      Petaling Jaya, Malaysia Language School
-                                      </span>
-                                      <span class="type">
-                                        Funding Type : Private
-                                      </span>
-                                      <span class="btns">
-                                        <a href="#" class="btn btn-5">apply</a>
-                                        <a href="#" class="btn btn-5">contact</a>
-                                      </span>
-                                      <span class="profile-link">
-                                        <a href="#" class="btn btn-more">
-                                          view profile
-                                        </a>
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <!-- .hover-part -->
-                                </section>
-                            </div>
-                            <!--.isotope-item-->
-
-                            <div class="col-sm-5 isotope-item ins">
-                                <section>
-                                  <figure class="feature-logo">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/inst-logo.jpg" alt=""/>
-                                  </figure>
-                                  <!-- .feature-logo -->
-                                  <div class="desc-part">
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>Toronto Institute of Pharmaceutical Technology (TIPT®) is Canada’s premier pharmaceutical Institute of education, technology.
-                                    </p>
-                                  </div>
-                                  <div class="hover-part">
-                                    <div class="txt-holder">
-                                      <span class="name">
-                                      Petaling Jaya, Malaysia Language School
-                                      </span>
-                                      <span class="type">
-                                        Funding Type : Private
-                                      </span>
-                                      <span class="btns">
-                                        <a href="#" class="btn btn-5">apply</a>
-                                        <a href="#" class="btn btn-5">contact</a>
-                                      </span>
-                                      <span class="profile-link">
-                                        <a href="#" class="btn btn-more">
-                                          view profile
-                                        </a>
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <!-- .hover-part -->
-                                </section>
-                            </div>
-                            <!--.isotope-item-->
-
-                            <div class="col-sm-5 isotope-item cou">
-                                <section>
-                                  <figure class="feature-logo">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/inst-logo.jpg" alt=""/>
-                                  </figure>
-                                  <!-- .feature-logo -->
-                                  <div class="desc-part">
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>Toronto Institute of Pharmaceutical Technology (TIPT®) is Canada’s premier pharmaceutical Institute of education, technology.
-                                    </p>
-                                  </div>
-                                  <div class="hover-part">
-                                    <div class="txt-holder">
-                                      <span class="profile-link">
-                                        <a href="#" class="btn btn-more">
-                                          view course
-                                        </a>
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <!-- .hover-part -->
-                                </section>
-                            </div>
-                            <!--.isotope-item-->
-
-                            <div class="col-sm-5 isotope-item ins">
-                                <section>
-                                  <figure class="feature-logo">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/inst-logo.jpg" alt=""/>
-                                  </figure>
-                                  <!-- .feature-logo -->
-                                  <div class="desc-part">
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>Toronto Institute of Pharmaceutical Technology (TIPT®) is Canada’s premier pharmaceutical Institute of education, technology.
-                                    </p>
-                                  </div>
-                                  <div class="hover-part">
-                                    <div class="txt-holder">
-                                      <span class="name">
-                                      Petaling Jaya, Malaysia Language School
-                                      </span>
-                                      <span class="type">
-                                        Funding Type : Private
-                                      </span>
-                                      <span class="btns">
-                                        <a href="#" class="btn btn-5">apply</a>
-                                        <a href="#" class="btn btn-5">contact</a>
-                                      </span>
-                                      <span class="profile-link">
-                                        <a href="#" class="btn btn-more">
-                                          view profile
-                                        </a>
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <!-- .hover-part -->
-                                </section>
-                            </div>
-                            <!--.isotope-item-->
-
-                            <div class="cou col-sm-5 isotope-item">
-                                <section>
-                                  <figure class="feature-logo">
-                                    <img src="{{URL::to('/')}}/live/public/uploads/inst-logo.jpg" alt=""/>
-                                  </figure>
-                                  <!-- .feature-logo -->
-                                  <div class="desc-part">
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>Toronto Institute of Pharmaceutical Technology (TIPT®) is Canada’s premier pharmaceutical Institute of education, technology.
-                                    </p>
-                                  </div>
-                                  <div class="hover-part">
-                                    <div class="txt-holder">
-                                      <span class="profile-link">
-                                        <a href="#" class="btn btn-more">
-                                          view course
-                                        </a>
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <!-- .hover-part -->
-                                </section>
-                            </div>
-                            <!--.isotope-item-->
+                            @endif
+                            @endforeach
+                            
                         </div>
                         <!-- end isotope content -->
                         <div class="col-sm-6 col-md-4">
