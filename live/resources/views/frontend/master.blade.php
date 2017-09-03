@@ -72,7 +72,7 @@
           <ul class="main-nav common-nav">
             @foreach($navigation_parent as $parent)
 
-            <li><a href="#">{{$parent->title}}</a>
+            <li><a href="{{URL::to('/').$parent->url}}">{{$parent->title}}</a>
             <?php
               $count=0;
             ?>
@@ -85,7 +85,7 @@
                 $count++;
             ?>
             @if($child->parent_id==$parent->id)
-             <li><a href="#">{{$child->title}}</a></li>
+             <li><a href="="{{URL::to('/').$child->url}}">{{$child->title}}</a></li>
             @endif
             @endforeach
             @if($count>0)
@@ -193,14 +193,24 @@
 </footer>
 
 <script src="{{URL::to('/')}}/live/public/lib/js/vendor/jquery-1.11.0.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB__qd-dGSVofxmpga8YBEFRsxgIMWH79Q&callback=initMap"></script>
 <script src="{{URL::to('/')}}/live/public/lib/js/vendor/bootstrap.min.js"></script>
 <script src="{{URL::to('/')}}/live/public/lib/js/select2.min.js"></script>
 <script src="{{URL::to('/')}}/live/public/lib/js/easyResponsiveTabs.js"></script>
 <script src="{{URL::to('/')}}/live/public/lib/js/jquery.isotope.js"></script>
 <script src="{{URL::to('/')}}/live/public/lib/js/plugins.js"></script>
 <script src="{{URL::to('/')}}/live/public/lib/js/scripts.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {    
+      $('#inst-tab').click(function(e) {    
+       initMap()
+      });
+     });
+</script>
 <!--[if lt IE 9]>
-<script src="lib/js/vendor/selectivizr-min.js"></script>
+<script src="lib/js/vendor/selectivizr-min.js">
+
+</script>
 <![endif]-->
 </body>
 </html>

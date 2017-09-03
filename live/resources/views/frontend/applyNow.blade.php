@@ -1,6 +1,6 @@
 @extends('frontend.master')
 @section('content')
-  <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
+
 <main id="content">
     <section class="form-section">
         <div class="container clearfix">
@@ -178,17 +178,6 @@
                     {{ Form::textarea('work_experience', null, ['class' => 'form-control']) }}
                 </div>
 
-                <div class="form-group">
-                    <label>Retype the characters from the picture</label>
-                    {!! captcha_image_html('ExampleCaptcha') !!}
-                    <input type="text" id="CaptchaCode" name="CaptchaCode">
-
-                    @if ($errors->has('CaptchaCode'))
-                      <span class="help-block">
-                        <strong>{{ $errors->first('CaptchaCode') }}</strong>
-                      </span>
-                    @endif 
-                </div> 
             </div>
 
             <div class="input-submit text-center">

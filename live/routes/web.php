@@ -13,6 +13,7 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('/apply', 'FrontController@applyNow');
+Route::get('/contact_us', 'FrontController@contact_us');
 Route::post('apply', 'FrontController@storeApplication');
 Route::get('/chat', function () {
     return view('chat');

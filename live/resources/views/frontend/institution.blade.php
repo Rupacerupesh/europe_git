@@ -84,7 +84,7 @@
                             <div class="course">
                                 <h4>{{$course->title}}</h4>
                                 <span class="head"><strong>Fees:</strong>Rs.{{$course->title}}</span>
-                                <a href="#" class="btn btn-5">apply online</a>
+                                <a href="{{URL::to('/').'/apply?course='.$course->id}}" class="btn btn-5">apply online</a>
                             </div>
                         </div>
                         @endforeach
@@ -142,13 +142,14 @@
 
 </main>
 <!-- #content -->
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB__qd-dGSVofxmpga8YBEFRsxgIMWH79Q&callback=initMap"></script>
+
 <script type="text/javascript">
-    var map; //Will contain map object.
+    //Will contain map object.
 
     //Function called to initialize / create the map.
     //This is called when the page has loaded.
      function initMap() {
+        var map;    
         var centerpoint = {lat: {{$institution_details->latitude}}, lng: {{$institution_details->longitude}}};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
@@ -162,7 +163,8 @@
 
 
     //Load the map when the page has finished loading.
-    google.maps.event.addDomListener(window, 'load', initMap);
+    // google.maps.event.addDomListener(window, 'load', initMap);
+
 </script>
 @stop
 

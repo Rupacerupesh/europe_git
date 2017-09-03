@@ -29,6 +29,12 @@ class FrontController extends Controller
     	// die('here');
     	return view('frontend.applyNow',compact('navigation_parent','navigation_children'));
     }
+        public function contact_us(){
+         $navigation_parent=Navigation::where('parent_id','0')->get();
+       $navigation_children=Navigation::where('parent_id','!=','0')->get();
+        // die('here');
+        return view('frontend.contact_us',compact('navigation_parent','navigation_children'));
+    }
     public function institution(){
          $navigation_parent=Navigation::where('parent_id','0')->get();
        $navigation_children=Navigation::where('parent_id','!=','0')->get();

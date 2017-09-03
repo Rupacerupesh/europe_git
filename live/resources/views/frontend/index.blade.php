@@ -278,7 +278,7 @@
                                         Funding Type : {{$institution->funding_type}}
                                       </span>
                                       <span class="btns">
-                                        <a href="#" class="btn btn-5">apply</a>
+                                        <a href="{{URL::to('/').'/apply?institution='.$institution->id}}" class="btn btn-5">apply</a>
                                         <a href="{{URL::to('/')}}/institution/{{$institution->slug}}#inst-tab3" class="btn btn-5">contact</a>
                                       </span>
                                       <span class="profile-link">
@@ -327,7 +327,7 @@
                         <div class="col-sm-6 col-md-4">
                                 @foreach($advertisement as $advertisements)
                                 <figure class="ad owl">
-                                  <a href="#">
+                                  <a href="#" target="_blank">
                                    <!--  <img src="{{URL::to('/')}}/live/public/uploads/ad.png" alt=""/> -->
 
                                    <!-- <img src="{{URL::to('/').'/live/public/uploads/advertisements_resize/'.$advertisements->image}}" alt="{{$advertisements->image}}" > -->
